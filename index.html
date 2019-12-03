@@ -152,6 +152,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-信安" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###什么是计算机网络<br>将位于不同位置的计算机，用不同的传输介质（有线、无线）连接起来，通过一些网络软件，最终实现资源共享的系统。  </p>
+<p>思科pacet Tracer<br>路由器<br>2960双层交换机<br>3560三层交换机<br>Hub 集线器<br>无线设备<br>线缆{蓝色：配置线；黑色实线、黑色虚线都是双绞线，实线是直连线，虚线是交叉线；闪电形的两个是串口线}<br>终端设备{台式机、笔记本、服务器等}  </p>
+<p>e0/0     以太网接口 传输速率10MB<br>f0/0     快速以太网接口  传输速率100MB<br>g0/0     快速以太网接口  传输速率1000MB</p>
+<p>思科路由器启动分为：1.硬件检查 2.运行IOS 3.导入配置文件<br>BIOS：硬件基础系统<br>思科路由器主要存储硬件{<br>ROM：只读存储器<br>Flash:存储完整的IOS镜像文件<br>NVRAM:存放路由器启动配置文件<br>RAM：存储运行配置文件<br>}</p>
+<p>双绞线：直通线、交叉线、控制线<br>T568B： 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕<br>T568A： 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕  </p>
+<p>直通线:T568A-T568A T568B-T568B<br>不同设备相连<br>交换机-路由器 路由器-集线器 交换机-PC  </p>
+<p>交叉线：T568A-T568B<br>交换机-交换器 路由器-路由器 交换机-集线器  </p>
+<p>全反线：控制线</p>
+<p>##基本命令操作：<br>如何对设备进行配置？<br>真实设备的配置：<br>需要通过控制线进行连接，并在计算机上安装接口驱动程序和超级终端程序。<br>sadfaf<br>模式：<br>Router&gt;用户模式<br>Router&gt;enable (简写en)<br>Router#特权模式<br>Router#config terminal 全局配置模式<br>Router(config)#<br>全局模式下路由器改名：<br>Router(config)# hostname R1<br>路由器工作在网络模型的第三层（所以也叫三层【网络层】设备）<br>网络层：传输数据包，作用是寻址，隔离广播，转发等。<br>广播域：不同网络处于不同广播域。 路由器的一个接口为一个广播域，交换机的所有接口都在一个广播域。<br>冲突域：集线器的所有端口都工作在一个冲突域，交换机的一个接口为一个冲突域。  </p>
+<p>R1(config)# interface fastEthernet 0/0<br>进入0/0接口<br>R1(config-if)# 接口模式<br>R1(config-if)#ip address 192.168.10.254  255.255.255.0<br>配置ip地址（和子网掩码）  </p>
+<p>子网掩码：标识网络号<br>R1(config-if)#no shudown 开启端口  </p>
+<p>返回上一级模式 exit<br>直接返回到特权模式 end   </p>
+<p>网关:一个网络的路由器 填路由器在这个网络接口的ip地址  </p>
+<p>在全局模式下输入：no ip domain-lookup (取消域名搜索)<br>               ctrl+shift+6</p>
+<p>如何查看配置是否正确：<br>启动配置文件：配置好以后进行保存的配置文件。<br>运行配置文件：当前已配置但是还未保存或当前运行的配置文件。  </p>
+<p>在特权模式下，show running-config 查看运行配置文件<br>           show startup-config 查看启动配置文件  </p>
+<p>特权模式下 copy running-config startup-config 保存配置文件<br>（或 R1#write R1#w  也可以直接保存）</p>
+<p>R1#reload  重启<br>重启后running-config的内容会消失，而startup-config的配置会一直存在。  </p>
+<p>###为提高设备安全，配置设备console密码保护设备。<br>进入全局模式，R1#config t<br>R1#(config)#line console 0<br>可以设置控制台的一些状态<br>路由器上的接口一般是从0开始的，所以只能是0<br>R1#(config-line)#password 123456<br>R1#(config-line)#login  </p>
+<p>###如果需要用户名和密码同时存在，怎么配置呢？<br>R1#config t<br>R1#(config)#username xupeng password 123456<br>R1#(config)#line console 0<br>R1#(config)#login local :本地用户验证 </p>
+<p>###设置enable密码：<br>R1#config t<br>R1(config)# enable password 123456<br>明文密码<br>R1(config)# enable secert 123456<br>密文密码<br>当这两个密码同时存在时，密文密码生效。  </p>
+<p>###为方便管理，配置telnet远程管理设备。<br>R1（config）#line vty   远程登陆的虚拟端口<br>R1（config）#line vty 0 4   0 4表示可以同时打开5个会话<br>Telnet接口配置模式<br>R1（config-line）#password 123456<br>R1（config-line）#login  </p>
+<p>####如何选择登陆呢？<br>在pc端的命令提示符中输入：pc&gt;telnet 192.168.10.254  </p>
+<p>####在远程登陆时需要用户名和密码呢?<br>R1（config）#line vty 0 4<br>R1（config-line）#login local  </p>
+<p>####如何配置管理交换机设备呢？<br>默认情况下，所有端口都在vlan1这个网络，我们只需要给vlan1这个接口配置IP地址，并远程登陆密码，就可以进行远程登陆访问了。<br>switch(config)#int vlan1<br>switch(config-if)#ip address 192.168.10.253 255.255.255.0<br>switch(config-if)#no shutdown<br>switch(config)#line vty 0 4<br>switch(config-line)#login local </p>
+<p>switch(config)#hostname S1<br>S1(config)#username xupeng password 123456<br>S1(config)#enable secret 123456  </p>
+<p>####SSH远程管理网络设备<br>switch(config)#hostname S1<br>S1(config)#ip domain-name xupeng.com  做一个域名<br>S1(config)#crypto key generate rsa  配置加密方式为RSA<br>  How many bits in the modulus [512]:1024 加密的位数为1024<br>S1(config)#username admin privilege 0 secret xupeng  创建本地账户和密码，加密级别为0<br>erver(config)#line vty 0 4  进入vty模式<br>Server(config-line)#exec-timeout 10 0 命令超时 10 0:10分钟<br>Server(config-line)#logging synchronous 开启日志同步<br>Server(config-line)#login local  采用本地验证<br>Server(config-line)#transport input ssh 启用SSH登陆</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/03/信安/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
