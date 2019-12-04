@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/12 | 往事随风</title>
+  <title>往事随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: 网络基本知识date: 2019-12-03 13:54:54modified:  2019-12-03 13:54:54tag:  系统知识 CVE-2019-1203  CVE _2019_12_03">
+<meta property="og:type" content="article">
 <meta property="og:title" content="往事随风">
-<meta property="og:url" content="http://yoursite.com/archives/2019/12/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/12/04/12.2/index.html">
 <meta property="og:site_name" content="往事随风">
+<meta property="og:description" content="title: 网络基本知识date: 2019-12-03 13:54:54modified:  2019-12-03 13:54:54tag:  系统知识 CVE-2019-1203  CVE _2019_12_03">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg">
+<meta property="og:updated_time" content="2019-12-04T08:11:57.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="往事随风">
+<meta name="twitter:description" content="title: 网络基本知识date: 2019-12-03 13:54:54modified:  2019-12-03 13:54:54tag:  系统知识 CVE-2019-1203  CVE _2019_12_03">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg">
   
     <link rel="alternative" href="/atom.xml" title="往事随风" type="application/atom+xml">
   
@@ -150,85 +156,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-12.2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: 网络基本知识<br>date: 2019-12-03 13:54:54<br>modified:  2019-12-03 13:54:54<br>tag:</p>
+<ul>
+<li>系统知识</li>
+<li>CVE-2019-1203</li>
+</ul>
+<h3 id="CVE-2019-12-03"><a href="#CVE-2019-12-03" class="headerlink" title="CVE _2019_12_03"></a>CVE _2019_12_03</h3><a id="more"></a>
+
+<h2 id="CVE-2019-12-03思科路由器的基本操作"><a href="#CVE-2019-12-03思科路由器的基本操作" class="headerlink" title="CVE _2019_12_03思科路由器的基本操作"></a>CVE _2019_12_03思科路由器的基本操作</h2><h3 id="什么是计算机网络"><a href="#什么是计算机网络" class="headerlink" title="什么是计算机网络"></a>什么是计算机网络</h3><p>将位于不同位置的计算机，用不同的传输介质（有线、无线）连接起来，通过一些网络软件，最终实现资源共享的系统。  </p>
+<p>思科pacet Tracer<br>路由器<br>2960双层交换机<br>3560三层交换机<br>Hub 集线器<br>无线设备<br>线缆{蓝色：配置线；黑色实线、黑色虚线都是双绞线，实线是直连线，虚线是交叉线；闪电形的两个是串口线}<br>终端设备{台式机、笔记本、服务器等}  </p>
+<p>e0/0     以太网接口 传输速率10MB<br>f0/0     快速以太网接口  传输速率100MB<br>g0/0     快速以太网接口  传输速率1000MB</p>
+<p>思科路由器启动分为：1.硬件检查 2.运行IOS 3.导入配置文件<br>BIOS：硬件基础系统<br>思科路由器主要存储硬件{<br>ROM：只读存储器<br>Flash:存储完整的IOS镜像文件<br>NVRAM:存放路由器启动配置文件<br>RAM：存储运行配置文件<br>}</p>
+<p>双绞线：直通线、交叉线、控制线<br>T568B： 橙白 橙 绿白 蓝 蓝白 绿 棕白 棕<br>T568A： 绿白 绿 橙白 蓝 蓝白 橙 棕白 棕  </p>
+<p>直通线:T568A-T568A T568B-T568B<br>不同设备相连<br>交换机-路由器 路由器-集线器 交换机-PC  </p>
+<p>交叉线：T568A-T568B<br>交换机-交换器 路由器-路由器 交换机-集线器  </p>
+<p>全反线：控制线</p>
+<h2 id="基本命令操作："><a href="#基本命令操作：" class="headerlink" title="基本命令操作："></a>基本命令操作：</h2><p>如何对设备进行配置？<br>真实设备的配置：<br>需要通过控制线进行连接，并在计算机上安装接口驱动程序和超级终端程序。<br>sadfaf<br>模式：<br>Router&gt;用户模式<br>Router&gt;enable (简写en)<br>Router#特权模式<br>Router#config terminal 全局配置模式<br>Router(config)#<br>全局模式下路由器改名：<br>Router(config)# hostname R1<br>路由器工作在网络模型的第三层（所以也叫三层【网络层】设备）<br>网络层：传输数据包，作用是寻址，隔离广播，转发等。<br>广播域：不同网络处于不同广播域。 路由器的一个接口为一个广播域，交换机的所有接口都在一个广播域。<br>冲突域：集线器的所有端口都工作在一个冲突域，交换机的一个接口为一个冲突域。  </p>
+<p>R1(config)# interface fastEthernet 0/0<br>进入0/0接口<br>R1(config-if)# 接口模式<br>R1(config-if)#ip address 192.168.10.254  255.255.255.0<br>配置ip地址（和子网掩码）  </p>
+<p>子网掩码：标识网络号<br>R1(config-if)#no shudown 开启端口  </p>
+<p>返回上一级模式 exit<br>直接返回到特权模式 end   </p>
+<p>网关:一个网络的路由器 填路由器在这个网络接口的ip地址  </p>
+<p>在全局模式下输入：no ip domain-lookup (取消域名搜索)<br>               ctrl+shift+6</p>
+<p>如何查看配置是否正确：<br>启动配置文件：配置好以后进行保存的配置文件。<br>运行配置文件：当前已配置但是还未保存或当前运行的配置文件。  </p>
+<p>在特权模式下，show running-config 查看运行配置文件<br>           show startup-config 查看启动配置文件  </p>
+<p>特权模式下 copy running-config startup-config 保存配置文件<br>（或 R1#write R1#w  也可以直接保存）</p>
+<p>R1#reload  重启<br>重启后running-config的内容会消失，而startup-config的配置会一直存在。  </p>
+<h3 id="为提高设备安全，配置设备console密码保护设备。"><a href="#为提高设备安全，配置设备console密码保护设备。" class="headerlink" title="为提高设备安全，配置设备console密码保护设备。"></a>为提高设备安全，配置设备console密码保护设备。</h3><p>进入全局模式，R1#config t<br>R1#(config)#line console 0<br>可以设置控制台的一些状态<br>路由器上的接口一般是从0开始的，所以只能是0<br>R1#(config-line)#password 123456<br>R1#(config-line)#login  </p>
+<h3 id="如果需要用户名和密码同时存在，怎么配置呢？"><a href="#如果需要用户名和密码同时存在，怎么配置呢？" class="headerlink" title="如果需要用户名和密码同时存在，怎么配置呢？"></a>如果需要用户名和密码同时存在，怎么配置呢？</h3><p>R1#config t<br>R1#(config)#username xupeng password 123456<br>R1#(config)#line console 0<br>R1#(config)#login local :本地用户验证 </p>
+<h3 id="设置enable密码："><a href="#设置enable密码：" class="headerlink" title="设置enable密码："></a>设置enable密码：</h3><p>R1#config t<br>R1(config)# enable password 123456<br>明文密码<br>R1(config)# enable secert 123456<br>密文密码<br>当这两个密码同时存在时，密文密码生效。  </p>
+<h3 id="为方便管理，配置telnet远程管理设备。"><a href="#为方便管理，配置telnet远程管理设备。" class="headerlink" title="为方便管理，配置telnet远程管理设备。"></a>为方便管理，配置telnet远程管理设备。</h3><p>R1（config）#line vty   远程登陆的虚拟端口<br>R1（config）#line vty 0 4   0 4表示可以同时打开5个会话<br>Telnet接口配置模式<br>R1（config-line）#password 123456<br>R1（config-line）#login  </p>
+<h4 id="如何选择登陆呢？"><a href="#如何选择登陆呢？" class="headerlink" title="如何选择登陆呢？"></a>如何选择登陆呢？</h4><p>在pc端的命令提示符中输入：pc&gt;telnet 192.168.10.254  </p>
+<h4 id="在远程登陆时需要用户名和密码呢"><a href="#在远程登陆时需要用户名和密码呢" class="headerlink" title="在远程登陆时需要用户名和密码呢?"></a>在远程登陆时需要用户名和密码呢?</h4><p>R1（config）#line vty 0 4<br>R1（config-line）#login local  </p>
+<h4 id="如何配置管理交换机设备呢？"><a href="#如何配置管理交换机设备呢？" class="headerlink" title="如何配置管理交换机设备呢？"></a>如何配置管理交换机设备呢？</h4><p>默认情况下，所有端口都在vlan1这个网络，我们只需要给vlan1这个接口配置IP地址，并远程登陆密码，就可以进行远程登陆访问了。<br>switch(config)#int vlan1<br>switch(config-if)#ip address 192.168.10.253 255.255.255.0<br>switch(config-if)#no shutdown<br>switch(config)#line vty 0 4<br>switch(config-line)#login local </p>
+<p>switch(config)#hostname S1<br>S1(config)#username xupeng password 123456<br>S1(config)#enable secret 123456  </p>
+<h4 id="SSH远程管理网络设备"><a href="#SSH远程管理网络设备" class="headerlink" title="SSH远程管理网络设备"></a>SSH远程管理网络设备</h4><p>switch(config)#hostname S1<br>S1(config)#ip domain-name xupeng.com  做一个域名<br>S1(config)#crypto key generate rsa  配置加密方式为RSA<br>  How many bits in the modulus [512]:1024 加密的位数为1024<br>S1(config)#username admin privilege 0 secret xupeng  创建本地账户和密码，加密级别为0<br>erver(config)#line vty 0 4  进入vty模式<br>Server(config-line)#exec-timeout 10 0 命令超时 10 0:10分钟<br>Server(config-line)#logging synchronous 开启日志同步<br>Server(config-line)#login local  采用本地验证<br>Server(config-line)#transport input ssh 启用SSH登陆</p>
+<p>时间不早了，晚安！</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/04/12.2/" class="archive-article-date">
-  	<time datetime="2019-12-04T08:11:57.218Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/12/04/12.2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/04/CVE-2019-0708/" class="archive-article-date">
-  	<time datetime="2019-12-04T08:09:58.574Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/04/12.4/" class="archive-article-date">
-  	<time datetime="2019-12-04T08:09:05.180Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-04</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/04/CVE-2019-0708/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -251,8 +348,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
