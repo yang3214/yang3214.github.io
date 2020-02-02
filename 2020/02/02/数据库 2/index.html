@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 往事随风</title>
+  <title>往事随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: MySQL数据库date: 2020-1-31 13:00:54modified:  2020-1-31 13:00:54tag:  网络知识 CVE-2020-1-31  CVE _2020-1-31">
+<meta property="og:type" content="article">
 <meta property="og:title" content="往事随风">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/02/02/数据库 2/index.html">
 <meta property="og:site_name" content="往事随风">
+<meta property="og:description" content="title: MySQL数据库date: 2020-1-31 13:00:54modified:  2020-1-31 13:00:54tag:  网络知识 CVE-2020-1-31  CVE _2020-1-31">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg">
+<meta property="og:updated_time" content="2020-02-02T07:34:31.947Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="往事随风">
+<meta name="twitter:description" content="title: MySQL数据库date: 2020-1-31 13:00:54modified:  2020-1-31 13:00:54tag:  网络知识 CVE-2020-1-31  CVE _2020-1-31">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg">
   
     <link rel="alternative" href="/atom.xml" title="往事随风" type="application/atom+xml">
   
@@ -150,169 +156,258 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据库 2" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: MySQL数据库<br>date: 2020-1-31 13:00:54<br>modified:  2020-1-31 13:00:54<br>tag:</p>
+<ul>
+<li>网络知识</li>
+<li>CVE-2020-1-31</li>
+</ul>
+<h3 id="CVE-2020-1-31"><a href="#CVE-2020-1-31" class="headerlink" title="CVE _2020-1-31"></a>CVE _2020-1-31</h3><a id="more"></a>
+
+<h1 id="CVE-2020-1-31MySQL数据库"><a href="#CVE-2020-1-31MySQL数据库" class="headerlink" title="CVE _2020_1_31MySQL数据库"></a>CVE _2020_1_31MySQL数据库</h1><h3 id="1、作业点评"><a href="#1、作业点评" class="headerlink" title="1、作业点评"></a>1、作业点评</h3><p>学生学号 ：char类型</p>
+<p>身份证号码：char (18)</p>
+<p>教师编号:char (4)</p>
+<p>成绩 ：decimal</p>
+<p>登记时间：datatime  now()：表示当前时间</p>
+<p>登录密码的长度为：41位</p>
+<p>unsigned:只针对数值型</p>
+<p>default:默认值，缺省约束</p>
+<p>主键约束：primary key  字段不能为空且不能重复</p>
+<p>唯一键：unique 字段可以为空值，但是不能重复</p>
+<p>primary key(id,username)–组合主键（将id,name组合在一起成为表的主键）</p>
+<p>desc  A：查看指定表的结构</p>
+<p>show create table A:查看指定表定义语句</p>
+<h3 id="2、自动递增"><a href="#2、自动递增" class="headerlink" title="2、自动递增"></a>2、自动递增</h3><p>auto_increment :自动递增 是数据的一种属性，只适于数字类型</p>
+<p>一个表只能有一个字段使用auto_increment</p>
+<p>engine:存储引擎</p>
+<p>将字段设置成 auto_increment 是需要将其设置成主键或者主键的一部分</p>
+<h3 id="3、enum-set的应用"><a href="#3、enum-set的应用" class="headerlink" title="3、enum,set的应用"></a>3、enum,set的应用</h3><p>1、enum：枚举字符串（多选一）</p>
+<p>select left(‘abc’,2);  ab</p>
+<p>select rigth(‘abc’,2) ; bc</p>
+<p>select substring(‘abc’,2); bc </p>
+<p>select substring(‘abc’,2,1);</p>
+<p>ü enum的选项对应一个数字，依次是1，2，3，4，5…，最多有65535个选项</p>
+<p>如：enum(‘a’,’b’,’c’)，如果某行的对应值为2，则选中了“b”</p>
+<h3 id="4、另类的insert"><a href="#4、另类的insert" class="headerlink" title="4、另类的insert"></a>4、另类的insert</h3><h5 id="1、一条语句插入多条数据"><a href="#1、一条语句插入多条数据" class="headerlink" title="1、一条语句插入多条数据"></a>1、一条语句插入多条数据</h5><p>语法：insert into 表名(字段列表) values (值列表1)，(值列表2)</p>
+<h5 id="2、insert…-select-须创建目标表"><a href="#2、insert…-select-须创建目标表" class="headerlink" title="2、insert….select (须创建目标表)"></a>2、insert….select (须创建目标表)</h5><p>语法：insert into 表名 [(字段列表)] select</p>
+<p>字段列表 from 表名；</p>
+<p>insert into g(username) select username from A;</p>
+<p>注意：两处字段列表数量必须一致，且数据类型能兼容</p>
+<h5 id="3、create…-select-…-插入数据前自动根据源表所选字段构建目标表"><a href="#3、create…-select-…-插入数据前自动根据源表所选字段构建目标表" class="headerlink" title="3、create….select …(插入数据前自动根据源表所选字段构建目标表)"></a>3、create….select …(插入数据前自动根据源表所选字段构建目标表)</h5><p>语法:create tabel 表名 select 字段列表 from 表名;<br>create table cc select username from A;</p>
+<h3 id="5、数据表的更改"><a href="#5、数据表的更改" class="headerlink" title="5、数据表的更改"></a>5、数据表的更改</h3><p>修改数据对象：alter</p>
+<p>对以存在的表进行结构修改</p>
+<p>添加字段：为表A添加用户密码字段</p>
+<p>userpassword varchar(20) not null</p>
+<p>alter table A</p>
+<p>​     add userpassword varchar(20) not null ;</p>
+<p>更改字段属性:将密码字段长度改为30</p>
+<p>alter table A</p>
+<pre><code>erpassword varchar(30) not null；</code></pre><p>删除字段：将字段userpassword1删除</p>
+<p>alter table A drop userpassword1;</p>
+<h3 id="6、约束"><a href="#6、约束" class="headerlink" title="6、约束"></a>6、约束</h3><h5 id="1、数据完整性：是指储存在数据中的数据的一致性和正确性。"><a href="#1、数据完整性：是指储存在数据中的数据的一致性和正确性。" class="headerlink" title="1、数据完整性：是指储存在数据中的数据的一致性和正确性。"></a>1、数据完整性：是指储存在数据中的数据的一致性和正确性。</h5><h5 id="2、约束是通过限制列中的数据，行中的数据和表之间数据来保证数据完整性"><a href="#2、约束是通过限制列中的数据，行中的数据和表之间数据来保证数据完整性" class="headerlink" title="2、约束是通过限制列中的数据，行中的数据和表之间数据来保证数据完整性"></a>2、约束是通过限制列中的数据，行中的数据和表之间数据来保证数据完整性</h5><p>create table B(<br>id bigint unsigned auto_increment primary key,<br>no bigint unsigned</p>
+<p>#构建外键字段<br>constraint fk_no_id foreign key(no) references A(id)</p>
+<p>#在当前表no字段上构建引用于表A字段id的名为fk_no_id的外键<br>);</p>
+<h5 id="为表A的字段a构建主键"><a href="#为表A的字段a构建主键" class="headerlink" title="为表A的字段a构建主键"></a>为表A的字段a构建主键</h5><p>alter  table A</p>
+<p>   add  constraint  pk_a primary key(a);# pk_a是主键约束名称</p>
+<h5 id="为表A的字段aa构建唯一键"><a href="#为表A的字段aa构建唯一键" class="headerlink" title="为表A的字段aa构建唯一键"></a>为表A的字段aa构建唯一键</h5><p>alter  table A</p>
+<p>   add  constraint un_aa unique(aa);# un_aa是唯一键约束名称</p>
+<h5 id="为表B的字段ba构建外键（引用于表A的字段a）"><a href="#为表B的字段ba构建外键（引用于表A的字段a）" class="headerlink" title="为表B的字段ba构建外键（引用于表A的字段a）"></a>为表B的字段ba构建外键（引用于表A的字段a）</h5><p>alter  table B</p>
+<p>   add constraint fk_ba_a foreign key(ba) references A(a);# fk_ba_a是外键名称</p>
+<h5 id="删除表A的主键"><a href="#删除表A的主键" class="headerlink" title="删除表A的主键"></a>删除表A的主键</h5><p>alter  table  A</p>
+<p>   drop primary key</p>
+<h5 id="删除表A字段aa的唯一键（un-aa）"><a href="#删除表A字段aa的唯一键（un-aa）" class="headerlink" title="删除表A字段aa的唯一键（un_aa）"></a>删除表A字段aa的唯一键（un_aa）</h5><p>alter  table  A</p>
+<p>   drop index un_aa;</p>
+<h5 id="删除表B字段ba的外键（fk-ba-a）"><a href="#删除表B字段ba的外键（fk-ba-a）" class="headerlink" title="删除表B字段ba的外键（fk_ba_a）"></a>删除表B字段ba的外键（fk_ba_a）</h5><p>alter  table  B</p>
+<p>   drop foreign  key fk_ba_a;</p>
+<h3 id="7、删除语句"><a href="#7、删除语句" class="headerlink" title="7、删除语句"></a>7、删除语句</h3><p>drop table a,b,c,d ：删除多个数据表</p>
+<p>drop database C :删除数据库</p>
+<h5 id="删除数据的语法："><a href="#删除数据的语法：" class="headerlink" title="删除数据的语法："></a>删除数据的语法：</h5><p>delete  from  表名  [where 条件表达式]</p>
+<p>在A表中id为2的数据进行删除</p>
+<p>delete from  A where id=3;</p>
+<p>delete from B where  id=3;</p>
+<p>说明上边语句不能直接删除，原因是B表中的no字段有引用A id 为3的值</p>
+<p>解决办法：</p>
+<p>1、先删除从表对应数据，再删除主表数据</p>
+<p>2、构建外键引用时，设置级联操作</p>
+<p>3、将外键临时取消作用或删除外键引用</p>
+<p>delete from B where  id=3; 先删除从表数据</p>
+<p>delete from  A where id=3; 再删除主表数据</p>
+<p>删除约束 (实质就是删除表结构)</p>
+<p>删除表B的名为fk_no_id的外键</p>
+<p>alter table B</p>
+<p>drop  foreign key fk_no_id；</p>
+<p>删除外键约束的语法是：</p>
+<p>尝试删表A的主键以及唯一键，并总结语法</p>
+<p>alter table A drop primary key;</p>
+<p>如果该主键对应的字段为自增字段，则不能删除主键约束。</p>
+<p>alter table A drop index username;</p>
+<h4 id="delete删除"><a href="#delete删除" class="headerlink" title="delete删除"></a>delete删除</h4><h5 id="1、删除一个表里所有数据"><a href="#1、删除一个表里所有数据" class="headerlink" title="1、删除一个表里所有数据"></a>1、删除一个表里所有数据</h5><p>delete from sinfo;  不仅删除数据，存储数据的对象都没了。</p>
+<p>truncate table sinfo;</p>
+<p>drop table sinfo;</p>
+<p>—-truncate属于DDL</p>
+<p>语法：truncate table 表名;</p>
+<h5 id="任务：delete和truncate-的区别"><a href="#任务：delete和truncate-的区别" class="headerlink" title="任务：delete和truncate 的区别"></a>任务：delete和truncate 的区别</h5><h5 id="1、删除教师年龄超过60岁的数据信息（DML—delete）"><a href="#1、删除教师年龄超过60岁的数据信息（DML—delete）" class="headerlink" title="1、删除教师年龄超过60岁的数据信息（DML—delete）"></a>1、删除教师年龄超过60岁的数据信息（DML—delete）</h5><p>delete    from   teachers   where  tAge&gt;60;</p>
+<p>delete    from   teachers   where  tAge&gt;=30 and tAge&lt;=60; #包含边界值</p>
+<p>delete   from   teachers   where  tAge not between 30 and 61;</p>
+<h5 id="2、删除考试分数为80或90或100的数据"><a href="#2、删除考试分数为80或90或100的数据" class="headerlink" title="2、删除考试分数为80或90或100的数据"></a>2、删除考试分数为80或90或100的数据</h5><p>delete from  elogs  where elScore =80  or elScore =90 or elScore=100;</p>
+<p>delete from  elogs  where elScore in(80,90,100);</p>
+<h5 id="3、删除在2019年度登记选修的所有数据信息"><a href="#3、删除在2019年度登记选修的所有数据信息" class="headerlink" title="3、删除在2019年度登记选修的所有数据信息"></a>3、删除在2019年度登记选修的所有数据信息</h5><p>delete from  elogs  where  elDate&gt;=’2019-01-01 00:00:00’ and elDate&lt;=’2019-12-31 23:59:59’</p>
+<p>delete from  elogs  where  elDatebetween ‘2019-01-01 00:00:00’ and  ‘2019-12-31 23:59:59’</p>
+<p>select now();  select year(now());</p>
+<p>select year(elDate) from elogs;</p>
+<p>delete from student  where year(passwd)=’2019’;</p>
+<h5 id="4、删除姓张的老师信息"><a href="#4、删除姓张的老师信息" class="headerlink" title="4、删除姓张的老师信息"></a>4、删除姓张的老师信息</h5><p>方法一：模糊查询：like字句、通配符(%:零个或多个任意字符、_:)</p>
+<p>delete from Teachers  where tName like  ‘张%’;</p>
+<p>方法二：使用截取字符的方式</p>
+<p>delete from Teachers  where left(tName,1)=’张’</p>
+<p>数学函数、字符串处理函数、日期和时间函数、其他函数</p>
+<h3 id="delete与truncate的区别"><a href="#delete与truncate的区别" class="headerlink" title="delete与truncate的区别"></a>delete与truncate的区别</h3><p>n delete会记录日志，意味着删除后的数据还可以恢复，但是效率低。</p>
+<p>n truncate不会记录日志，删除后的数据不能恢复，但是效率高；truncate不能用于有外键约束引用的表。</p>
+<p>truncate应用场景：如果是开发一个应用程序，开始可能使用的是测试数据，当应用开发成功后，需要将真正的数据导入到数据表中，为了使自增主键从1开始，使用truncate操作数据表比较方便。</p>
+<p>MySQL常用函数：<a href="https://www.cnblogs.com/progor/p/8832663.html" target="_blank" rel="noopener">https://www.cnblogs.com/progor/p/8832663.html</a></p>
+<h4 id="课外任务："><a href="#课外任务：" class="headerlink" title="课外任务："></a>课外任务：</h4><p>1、 truncate与delete的区别</p>
+<p>2、 常用数学函数、字符串函数、日期和时间函数的应用</p>
+<p>3、 复习今日讲解内容</p>
+<h4 id="晨会分享："><a href="#晨会分享：" class="headerlink" title="晨会分享："></a>晨会分享：</h4><p>1、 主从关联时删除主表数据的解决方法（级联设置、临时取消外键关联）</p>
+<p>2、 三大范式</p>
+<p>3、MySQL explain命令应用</p>
+<p>![](数据库 2/1.png)</p>
+<p>![](数据库 2/2.png)</p>
+<p>时间不早了，晚安！</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/数据库 2/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:11:47.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/02/数据库 2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/数据库/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:10:08.308Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/12.19/" class="archive-article-date">
-  	<time datetime="2020-02-01T02:33:30.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/02/数据库/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/29/1.30/" class="archive-article-date">
-  	<time datetime="2020-01-29T11:09:28.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/29/1.29/" class="archive-article-date">
-  	<time datetime="2020-01-29T11:05:03.242Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-29</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/12.6/" class="archive-article-date">
-  	<time datetime="2020-01-17T07:27:12.007Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/17/12.5/" class="archive-article-date">
-  	<time datetime="2020-01-17T07:27:12.005Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-17</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -335,8 +430,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
