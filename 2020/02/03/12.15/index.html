@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 往事随风</title>
+  <title>往事随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: 服务与进程管理date: 2020-2-2 13:54:54modified:  2020-2-2 13:54:54tag:  Linux系统知识 CVE-2020-2-2  CVE _2020-2-2">
+<meta property="og:type" content="article">
 <meta property="og:title" content="往事随风">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/02/03/12.15/index.html">
 <meta property="og:site_name" content="往事随风">
+<meta property="og:description" content="title: 服务与进程管理date: 2020-2-2 13:54:54modified:  2020-2-2 13:54:54tag:  Linux系统知识 CVE-2020-2-2  CVE _2020-2-2">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2020/02/03/12.15/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/03/12.15/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/03/12.15/3.png">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg">
+<meta property="og:updated_time" content="2020-02-03T04:59:51.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="往事随风">
+<meta name="twitter:description" content="title: 服务与进程管理date: 2020-2-2 13:54:54modified:  2020-2-2 13:54:54tag:  Linux系统知识 CVE-2020-2-2  CVE _2020-2-2">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/03/12.15/1.png">
   
     <link rel="alternative" href="/atom.xml" title="往事随风" type="application/atom+xml">
   
@@ -150,148 +159,297 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-12.15" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: 服务与进程管理<br>date: 2020-2-2 13:54:54<br>modified:  2020-2-2 13:54:54<br>tag:</p>
+<ul>
+<li>Linux系统知识</li>
+<li>CVE-2020-2-2</li>
+</ul>
+<h3 id="CVE-2020-2-2"><a href="#CVE-2020-2-2" class="headerlink" title="CVE _2020-2-2"></a>CVE _2020-2-2</h3><a id="more"></a>
+
+<h1 id="CVE-2020-2-2服务与进程管理"><a href="#CVE-2020-2-2服务与进程管理" class="headerlink" title="CVE _2020_2_2服务与进程管理"></a>CVE _2020_2_2服务与进程管理</h1><h2 id="服务与进程管理"><a href="#服务与进程管理" class="headerlink" title="服务与进程管理"></a>服务与进程管理</h2><h4 id="计算机启动过程"><a href="#计算机启动过程" class="headerlink" title="计算机启动过程"></a>计算机启动过程</h4><p>1、加电自检</p>
+<p>2、BIOS设置</p>
+<p>​      进入BIOS的方式:开机按del F2 F8 F11</p>
+<h4 id="1、Linux启动过程"><a href="#1、Linux启动过程" class="headerlink" title="1、Linux启动过程"></a>1、Linux启动过程</h4><p>1、首先是开机，开机以后有一个加电自检 开机文字闪动  </p>
+<p>2、引导程序启动</p>
+<p>3、内核启动</p>
+<p>4、运行安全级别</p>
+<p>5、进入登录界面 </p>
+<p>6、进入Shell 环境    Linux可以使用</p>
+<p>自检：自我检测，对我们这台计算机的硬件进行检测  有BIOS程序进行检测</p>
+<h4 id="2、Linux系统的运行级别"><a href="#2、Linux系统的运行级别" class="headerlink" title="2、Linux系统的运行级别"></a>2、Linux系统的运行级别</h4><p>Linux 为了适应不同用户服务的启动配置要求，设置了七中不同的运行级别 </p>
+<p>0:关机模式 poweroff.target</p>
+<p>1：单用户模式</p>
+<p>2、多用户模式</p>
+<p>3: 完全多用户模式</p>
+<p>4、特定运行模式</p>
+<p>5、系统的图形界面运行级别</p>
+<p>6、重新启动</p>
+<p>查看级别 runlevel</p>
+<p>切换级别 init 0 :关机 init 6 :重启</p>
+<p>target 文件保存在 /lib/systemd/system 目录中</p>
+<p>运行级别的设置由/etc/systemd/system/default.target 文件来控制。 </p>
+<p>运行级别服务程序存放位置：/etc/rc.d/ </p>
+<p>服务程序的脚本文件存放位置：/etc/rc.d/init.d/ </p>
+<h4 id="3、系统运行级别之间的切换"><a href="#3、系统运行级别之间的切换" class="headerlink" title="3、系统运行级别之间的切换"></a>3、系统运行级别之间的切换</h4><p>查看系统的当前运行级别：runlevel </p>
+<p>查看系统启动时的运行级别：ll /etc/systemd/system/default.target</p>
+<p>使用 init 命令进行切换 </p>
+<p>将系统启动的运行级别从 5 修改为 3 </p>
+<p>方法一：重新设置链接文件 </p>
+<p>#rm -rf /etc/systemd/system/default.target </p>
+<p>#ln -s /lib/systemd/system/runlevel3.target /etc/systemd/system/default.tart </p>
+<p>方法二：使用 systemctl 命令 </p>
+<p>#systemctl set-default runlevel3.target </p>
+<p>#systemctl set-default runlevel3.target </p>
+<h4 id="4、使用-systemctl-管理服务"><a href="#4、使用-systemctl-管理服务" class="headerlink" title="4、使用 systemctl 管理服务"></a>4、使用 systemctl 管理服务</h4><h5 id="1-、服务的启动与停止"><a href="#1-、服务的启动与停止" class="headerlink" title="(1)、服务的启动与停止"></a>(1)、服务的启动与停止</h5><p>命令格式：systemctl 选项 服务名 </p>
+<p>选项说明： </p>
+<p>start：启动;stop:停止；restart：重启；status：服务状态 </p>
+<p>服务名：一般以“.service”结尾，输入服务名时了可省略。</p>
+<h5 id="2-设置服务的启动状态"><a href="#2-设置服务的启动状态" class="headerlink" title="(2)设置服务的启动状态"></a>(2)设置服务的启动状态</h5><p>①使用 ntsysv 命令设置服务的自启动 </p>
+<p>查看服务的自启动状态：systemctl is-enabled [服务名称] </p>
+<p>开启服务的自启动：systemctl enable 服务名称 </p>
+<p>关闭服务的自启动：systemctl disable 服务名称</p>
+<h5 id="3-查看所有的服务"><a href="#3-查看所有的服务" class="headerlink" title="(3)查看所有的服务"></a>(3)查看所有的服务</h5><p>命令格式：systemctl [选项] [–type=TYPE] [–all]</p>
+<p>(1) list-units：依据 unit 列出所有启动的 unit。加上–all 会列出没启动的 unit; </p>
+<p>(2) list-unit-files:依据/usr/lib/systemd/system/ 内的启动文件，列出启动文件列表 </p>
+<p>–type=TYPE： 为 unit type, 主要有 service, socket, target </p>
+<p><img src="/2020/02/03/12.15/1.png" alt></p>
+<p><img src="/2020/02/03/12.15/2.png" alt></p>
+<h3 id="进程的延迟与周期调度"><a href="#进程的延迟与周期调度" class="headerlink" title="进程的延迟与周期调度"></a>进程的延迟与周期调度</h3><h5 id="（1）进程的概念"><a href="#（1）进程的概念" class="headerlink" title="（1）进程的概念"></a>（1）进程的概念</h5><p>进程：开始执行但是还没有结束的程序的实例 </p>
+<p>程序：包含可执行代码的文件 </p>
+<p>进程由程序产生，是一个运行着的、要占系统资源的程序，进程不等于程序。 </p>
+<p>进程分为：交互进程、批处理进程、守护进程。 </p>
+<h5 id="（2）进程的查看：ps-命令"><a href="#（2）进程的查看：ps-命令" class="headerlink" title="（2）进程的查看：ps 命令"></a>（2）进程的查看：ps 命令</h5><p>命令语法：ps [选项] </p>
+<p>选项说明： </p>
+<p>-A：显示系统中所有进程的信息，与-e 具有相同的功能。 </p>
+<p>-a：显示所有用户进程的信息。 </p>
+<p>-f：完整的显示进程的所有信息。 </p>
+<p>-l：以长格式显示进程信息。 </p>
+<p>-r：只显示正在运行的进程。 </p>
+<p>-u：显示面向用户的格式(包括用户名、CPU 及内存使用情况等信息)。 </p>
+<p>-x：显示所有非控制终端上的进程信息。 </p>
+<p>-p：显示由进程 ID 指定的进程的信息。 </p>
+<p>-t：显示指定终端上的进程的信息。 </p>
+<p>（3）查看各进程继承关系的命令：pstree </p>
+<p>pstree 命令以树状结构显示系统进程的继承关系。树状图将会以 pid (如果有指定) 或是以 init </p>
+<p>为根，如果指定 user，则树状结构只显示该用户所拥有的进程。 </p>
+<p>命令格式：pstree [选项] [pid|user] </p>
+<p>选项说明： </p>
+<p>-a：显示该进程的完整继承关系，如果是被内存置换出去的进程则会加上括号。 </p>
+<p>-c 如果有重复的进程名, 则分开列出 (默认值是会在前面加上 * )。 </p>
+<p>pid|user：查看指定根进程(pid)或用户(user)所拥有的进程。 </p>
+<h5 id="（4）进程的终止"><a href="#（4）进程的终止" class="headerlink" title="（4）进程的终止"></a>（4）进程的终止</h5><p>kill [信号代码] pid </p>
+<p>Killall [信号代码] 进程名</p>
+<h5 id="5-、进程的调度"><a href="#5-、进程的调度" class="headerlink" title="(5)、进程的调度"></a>(5)、进程的调度</h5><p>进程的调度 </p>
+<p>①延迟性调试命令：at </p>
+<p>功能：指定时间运行指定的程序 </p>
+<p>格式：at [-f 文件] [-m ] 时间 </p>
+<p>-f : 指定存放计划执行命令的文件 </p>
+<p>-m: 作业结束后发送邮件给执行 at 命令的用户 </p>
+<p>时间：任务执行的时间，可采用相对和绝对两种方法 </p>
+<p>绝对表示法： MMDDYY 或 MM/DD/YYYY， today 或 tomorrow 来表示今天或明天 </p>
+<p>相对表示法：now＋num＋时间单位，其中的时间间隔可以是 minutes, hours, days, weeks</p>
+<h5 id="①延迟性调试命令：at"><a href="#①延迟性调试命令：at" class="headerlink" title="①延迟性调试命令：at"></a>①延迟性调试命令：at</h5><p>功能：指定时间运行指定的程序 </p>
+<p>格式：at [-f 文件] [-m ] 时间 </p>
+<p>-f : 指定存放计划执行命令的文件 </p>
+<p>-m: 作业结束后发送邮件给执行 at 命令的用户 </p>
+<p>时间：任务执行的时间，可采用相对和绝对两种方法 </p>
+<p>绝对表示法： MMDDYY 或 MM/DD/YYYY， today 或 tomorrow 来表示今天或明天 </p>
+<p>相对表示法：now＋num＋时间单位，其中的时间间隔可以是 minutes, hours, days, weeks</p>
+<p>周期性调度命令 crontab</p>
+<p>功能：计划调度服务</p>
+<p>crontab -u user {-e|el |-r}</p>
+<p>-u：为指定的用户设置计划任务 </p>
+<p>-e：编辑计划任务列表 </p>
+<p>文件路径：/var/spool/cron</p>
+<p>-l：查看指定用户的计划任务列表，默认为当前用户 </p>
+<p>-r：删除用户的计划任务列表 </p>
+<p>crontab –u user file (其中 file 代表任务列表文件）</p>
+<p><img src="/2020/02/03/12.15/3.png" alt></p>
+<p>回收站路径:</p>
+<h3 id="samba服务器-文件共享"><a href="#samba服务器-文件共享" class="headerlink" title="samba服务器(文件共享)"></a>samba服务器(文件共享)</h3><p>查看服务启动 :systemctl status sub nmb</p>
+<p>getenforce </p>
+<p>setenforce 0 关闭 1：开启   安全机制</p>
+<p>firewalld：防火墙</p>
+<p>systemctl stop  firewalld :关闭防火墙</p>
+<p>​    start:启动  status:查看状态  restart 重启</p>
+<p>实现步骤：</p>
+<p>1、关闭安全机制和防火墙</p>
+<p>​     setenforce 0 :关闭</p>
+<p>​    systemctl stop firewalld </p>
+<p>2、通过yum安装samba服务并启动</p>
+<p>​    安装：   yum install -y  samba samba-client</p>
+<p>启动：systemctl start smb  nmb</p>
+<p>3、建立共享目录和创建访问账号</p>
+<p>  创建目录:mkdir /mnt/company</p>
+<p> 创建账号:useradd -s /sbin/nologin xzb</p>
+<p>​                 useradd -s /sbin/nologin  xsb</p>
+<p>-s是指定用户登入后所使用的shell</p>
+<p>-s /sbin/nologin.此用户就不可以登录系统。</p>
+<p>4、通过smbass -a 来添加smb账户</p>
+<p>​        smbass -a  xzb</p>
+<p>​       smbass   -a xsb</p>
+<p>5、通过修改配置文件来，来设置共享目录和权限</p>
+<p>​    vim /etc/samba/smb.conf</p>
+<p>comment = company share //共享注释 </p>
+<p>path = /home/company //指定共享路径 </p>
+<p>browseable = yes //所有人可见 </p>
+<p>guest ok = no //拒绝匿名访问 </p>
+<p>writeable = yes //支持写入数据</p>
+<p>两个权限：一是共享权限</p>
+<p>​                  二是文件本身权限(通过ACL来指定权限)</p>
+<p>setfacl -m  u:xsb:rwx /mnt/company</p>
+<p>最后通过smbclient -U 命令来测试</p>
+<p>smblient -U  xzb //192.168.186.128/company</p>
+<p>smbclient -L ip地址 :查看服务器的共享文件</p>
+<p>s</p>
+<h4 id="在-Linux-下访问-Windows-共享目录的配置方法"><a href="#在-Linux-下访问-Windows-共享目录的配置方法" class="headerlink" title="在 Linux 下访问 Windows 共享目录的配置方法"></a>在 Linux 下访问 Windows 共享目录的配置方法</h4><p>配置步骤：</p>
+<p>1、在windows 上设置一个共享文件(给定他权限)</p>
+<p>2、在Linx系统下安装samba-client客户端</p>
+<p> yum install  samba-client</p>
+<p>3、安装cifs-utils软件包</p>
+<p>yum install cifs-utils</p>
+<p>4、在Linux下创建一个挂载点</p>
+<p>mkdir  /mnt/windows</p>
+<p>5、挂载Windows上的共享目录</p>
+<p># mount -t cifs -o username=Administrator //192.168.0.3/mytest /mnt/Windows</p>
+<p>5、如果挂载成功，则可以进入查看文件</p>
+<p>cd  /mnt/windows  进去查看文件</p>
+<p>时间不早了，晚安！</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/12.15/" class="archive-article-date">
-  	<time datetime="2020-02-03T04:53:23.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/03/12.15/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/12.23/" class="archive-article-date">
-  	<time datetime="2020-02-03T04:42:10.289Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/12.30 搭建nginx服务器/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:55:51.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/03/12.23/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/2.2/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:11:47.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/数据库/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:10:08.308Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/12.19/" class="archive-article-date">
-  	<time datetime="2020-02-01T02:33:30.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -314,8 +472,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

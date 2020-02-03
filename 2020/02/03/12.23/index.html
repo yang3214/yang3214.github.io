@@ -6,15 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/2 | 往事随风</title>
+  <title>往事随风</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="title: quota 磁盘配额管理date: 2020-2-2 13:54:54modified:  2020-2-2 13:54:54tag:  Linux系统知识 CVE-2020-2-2  CVE _2020-2-2">
+<meta property="og:type" content="article">
 <meta property="og:title" content="往事随风">
-<meta property="og:url" content="http://yoursite.com/archives/2020/02/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/02/03/12.23/index.html">
 <meta property="og:site_name" content="往事随风">
+<meta property="og:description" content="title: quota 磁盘配额管理date: 2020-2-2 13:54:54modified:  2020-2-2 13:54:54tag:  Linux系统知识 CVE-2020-2-2  CVE _2020-2-2">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2020/02/03/12.23/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/03/12.23/2.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/03/12.23/3.png">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg">
+<meta property="og:updated_time" content="2020-02-03T04:52:53.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="往事随风">
+<meta name="twitter:description" content="title: quota 磁盘配额管理date: 2020-2-2 13:54:54modified:  2020-2-2 13:54:54tag:  Linux系统知识 CVE-2020-2-2  CVE _2020-2-2">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/03/12.23/1.png">
   
     <link rel="alternative" href="/atom.xml" title="往事随风" type="application/atom+xml">
   
@@ -150,148 +159,371 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-12.23" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: quota 磁盘配额管理<br>date: 2020-2-2 13:54:54<br>modified:  2020-2-2 13:54:54<br>tag:</p>
+<ul>
+<li>Linux系统知识</li>
+<li>CVE-2020-2-2</li>
+</ul>
+<h3 id="CVE-2020-2-2"><a href="#CVE-2020-2-2" class="headerlink" title="CVE _2020-2-2"></a>CVE _2020-2-2</h3><a id="more"></a>
+
+<h1 id="CVE-2020-2-2quota-磁盘配额管理"><a href="#CVE-2020-2-2quota-磁盘配额管理" class="headerlink" title="CVE _2020_2_2quota 磁盘配额管理"></a>CVE _2020_2_2quota 磁盘配额管理</h1><h2 id="quota-磁盘配额管理"><a href="#quota-磁盘配额管理" class="headerlink" title="quota 磁盘配额管理"></a>quota 磁盘配额管理</h2><h4 id="1、磁盘配额的概念："><a href="#1、磁盘配额的概念：" class="headerlink" title="1、磁盘配额的概念："></a>1、磁盘配额的概念：</h4><p>quota磁盘配额功能只能在指定文件系统（分区）内有效，未设置配额的文件不收限制。</p>
+<p>quota针对指定的用户账号、组账号进行限制，其他用户或组不收影响</p>
+<p>磁盘配额可以进行两方面的限制：磁盘容量、文件数量。</p>
+<p>磁盘容量：限制用户能够使用的磁盘数据块（block）大小，也就是限制磁盘空间大小， </p>
+<p>默认单位为 KB。 </p>
+<p>文件数量：限制用户能够拥有的文件个数</p>
+<p><strong>软限制</strong>:指设定一个软性的配额数值（如 500MB 磁盘空间、200 个文件），在固定的宽限期（默 认为 7 天）内允许暂时超过这个限制，但系统会给出警告信息。 </p>
+<p>硬限制:指设定一个硬性的配额数值（如 1GB 磁盘空间、500 个文件），而且绝对禁止用户超 过该限值。硬限制的配额值应大于相应的软限制值，否则软限制值将失效。</p>
+<h4 id="设置磁盘配额"><a href="#设置磁盘配额" class="headerlink" title="设置磁盘配额"></a>设置磁盘配额</h4><h5 id="1、启用quoata磁盘配额"><a href="#1、启用quoata磁盘配额" class="headerlink" title="1、启用quoata磁盘配额"></a>1、启用quoata磁盘配额</h5><p>首先要通过修改配置文件“/etc/fstab”的方式启用 quota 磁盘配额。 </p>
+<p>[root@localhost var]# vim /etc/fstab </p>
+<p>/dev/sdb1  /data  ext4   defaults,usrquota,grpquota 0 0 </p>
+<p>将该文件系统重新挂载 </p>
+<p>[root@localhost ~]# mount -o remount /data </p>
+<p>执行 mount 命令查看已经挂载的文件系统，检查是否已经启用了 usrquota 和 </p>
+<p>grpquota 功能 </p>
+<p>[root@localhost ~]# mount | grep sdb1 </p>
+<p>/dev/sdb1 on /data type ext4 (rw,usrquota,grpquota)、</p>
+<h5 id="2、生成配额文件"><a href="#2、生成配额文件" class="headerlink" title="2、生成配额文件"></a>2、生成配额文件</h5><p>[root@localhost ~]# quotacheck -cvug /data </p>
+<p>root@localhost ~]# setenforce 0 </p>
+<p>[root@localhost ~]# ls /data </p>
+<p>’查看生成的配额文件 </p>
+<p>aquota.group aquota.user lost+found </p>
+<p>’将 SELinux 设为许可模式 </p>
+<p>[root@localhost ~]# quotacheck -cvug /data ’再次执行 quotacheck 命令</p>
+<p>SEinux</p>
+<p>getenforce  </p>
+<p>Enforcing 1 ：启用，</p>
+<p>修改：setenforce 0  </p>
+<p>getenfoce </p>
+<p>permissive:关闭</p>
+<p><img src="/2020/02/03/12.23/1.png" alt></p>
+<h5 id="3、编辑用户和组账号的配额设置"><a href="#3、编辑用户和组账号的配额设置" class="headerlink" title="3、编辑用户和组账号的配额设置"></a>3、编辑用户和组账号的配额设置</h5><p>[root@localhost ~]# edquota -u jerry </p>
+<p>’设置用户 jerry 的磁盘配额 </p>
+<p>[root@localhost ~]# edquota -u jerry </p>
+<p>’设置用户 jerry 的磁盘配额 </p>
+<p>编辑组的配额设置 </p>
+<p>[root@localhost ~]# edquota -g financial </p>
+<p>’设置 financial 组的磁盘配额 </p>
+<h5 id="4、激活磁盘配额-root-localhost-quotaon-ugv-data-’激活“-data”文件系统的用户、组配额"><a href="#4、激活磁盘配额-root-localhost-quotaon-ugv-data-’激活“-data”文件系统的用户、组配额" class="headerlink" title="4、激活磁盘配额[root@localhost ~]# quotaon -ugv /data ’激活“/data”文件系统的用户、组配额"></a>4、激活磁盘配额<strong>[root@localhost ~]# quotaon -ugv /data</strong> ’激活“/data”文件系统的用户、组配额</h5><h2 id="软件安装与包管理工具"><a href="#软件安装与包管理工具" class="headerlink" title="软件安装与包管理工具"></a>软件安装与包管理工具</h2><h4 id="1、RPM包安装"><a href="#1、RPM包安装" class="headerlink" title="1、RPM包安装"></a>1、RPM包安装</h4><p>RPM 主要有５种基本功能：查询、安装、升级、刷新、卸载。 </p>
+<p>命令格式：rpm [选项] [文件] </p>
+<h5 id="（1）查询："><a href="#（1）查询：" class="headerlink" title="（1）查询："></a>（1）查询：</h5><p>软件包的查询功能主要有-q选项完成，为了实现特殊的查询功能要配合其他的选项使用。</p>
+<p>（2）安装:rpm -ivh 软件包名称</p>
+<p>rmp -ivh telnet-server-0.17-59.e17.x86_64.rpm</p>
+<p>(3)卸载</p>
+<p> 将telnet-server软件从系统中卸载</p>
+<p>#rpm -e telnet-server</p>
+<p>systemctl start ：服务启动与关闭</p>
+<p>systemctl  status :查看服务状态</p>
+<p><img src="/2020/02/03/12.23/2.png" alt="1577070118084"></p>
+<p>关闭防火墙：</p>
+<h4 id="2、YUM源安装"><a href="#2、YUM源安装" class="headerlink" title="2、YUM源安装"></a>2、YUM源安装</h4><p>cd /etc/yum.repos.d :默认的YUM源文件的存放目录，文件必须存放在这个文件</p>
+<p><img src="/2020/02/03/12.23/3.png" alt="1577071044617"></p>
+<p>1、挂载</p>
+<p>2、设置源文件的存放</p>
+<p>创建自定义yum文件：#vim/etc/yum.d/mdedia.repo</p>
+<p>[dvd]</p>
+<p>name=centos7\</p>
+<p>baseurl=filse://</p>
+<p>​                http://</p>
+<p>​                  ftp”//</p>
+<p>enabled=1</p>
+<p>gpgcheck=0</p>
+<p>yum list ；列出仓库中可用软件包</p>
+<p>yum clean all：清除缓存</p>
+<p>filse:表示本地路径  http://网络路径</p>
+<h4 id="YUM工具的使用"><a href="#YUM工具的使用" class="headerlink" title="YUM工具的使用"></a>YUM工具的使用</h4><p>命令格式：yum [选项] [指令] [软件包]</p>
+<p><strong>1、YUM 工具简介</strong> </p>
+<p>（1）YUM（Yellow dog Upadate Modifie）是改进版的 RPM 管理器，很好地解决了 RPM 软件包的依赖问题。 </p>
+<p>（2）YUM 可以从很多源中搜索软件以及他们的依赖包，并自动安装相应的依赖软件。 </p>
+<p>（3）YUM 安装软件时至少需要一个 YUM 源，YUM 源就是存放有很多 RPM 软件的目录。 </p>
+<p>用户可以使用 HTTP、FTP 或本地目录的方式访问 YUM 源。 </p>
+<p><strong>2、设置本地 YUM 源</strong> </p>
+<p>（1）挂载光盘到/mnt/cdrom </p>
+<p>（2）创建自定义 yum 文件:#vim/etc/yum.d/media.repo </p>
+<p>[dvd] </p>
+<p>name=CentOS7 </p>
+<p>baseurl=file:///mnt/cdrom </p>
+<p>enabled=1 </p>
+<p>gpgcheck=0 </p>
+<p>gpqkey=gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 </p>
+<h4 id="3、YUM-工具的使用"><a href="#3、YUM-工具的使用" class="headerlink" title="3、YUM 工具的使用"></a>3、YUM 工具的使用</h4><p>命令格式：yum [选项] [指令] [软件包] </p>
+<p>install package1 package2 </p>
+<p>使用 YUM 源安装软件包。 </p>
+<p>update package[…] </p>
+<p>使用 YUM 源升级软件包。 </p>
+<p>check-update 检查 YUM 源中所有可用的升级。 </p>
+<p>remove|erase package1 package2 卸载软件包。 </p>
+<p>list[…]系统中已经安装的以及 YUM 源中所有可用的软件包。 </p>
+<p>info[…] </p>
+<p>查看软件包信息。 </p>
+<p>clean all </p>
+<p>清空所有的缓存信息。 </p>
+<p>makecache all 生成所有的缓存信息 </p>
+<p>groupinstall group1 [group2] […] 使用 YUM 源安装组包。 </p>
+<p>groupremove group1 [group2] […] 卸载组包。 </p>
+<p>清理yum缓存#yum clean all</p>
+<p>4、使用 rpm 与 yum 安装 DNS 的区别 </p>
+<h4 id="5、常见问题"><a href="#5、常见问题" class="headerlink" title="5、常见问题"></a>5、常见问题</h4><p>（1）创建 YUM 源 </p>
+<p>首先安装 createrepo,其次将所有软件包保存在一个目录，如:/mysoft/, </p>
+<p>最后执行：#createrepo /mysoft 创建该目录的 yum 源，再修改 yum 配置文件即可。 </p>
+<p>（2）YUM 繁忙问题 </p>
+<p>在错误提示中找到 PID 进程号，使用 kill -9 进程号即可</p>
+<p>3、源代码安装</p>
+<h4 id="三、TAR-包管理工具简介"><a href="#三、TAR-包管理工具简介" class="headerlink" title="三、TAR 包管理工具简介"></a>三、TAR 包管理工具简介</h4><p>TAR（Tape Archive，TAR）是 Linux 下的包管理工具，具有 5 种功能：打包、查询、释放、更新、追加。 </p>
+<p>命令格式：tar [主选项+辅助选项] [文件或目录] </p>
+<p>选项 </p>
+<p>说明 </p>
+<p>-c </p>
+<p>创建新的 tar 包 </p>
+<p>-t </p>
+<p>列出 tar 包文件的列表 </p>
+<p>-x </p>
+<p>从 tar 包中释放文件 </p>
+<p>-r </p>
+<p>把备份文件追加到已备份文件的末尾 </p>
+<p>辅助选项 </p>
+<p>说明 </p>
+<p><strong>-f</strong> </p>
+<p><strong>备份文件或设备，必选项</strong> </p>
+<p>-v </p>
+<p>显示命令执行的详细信息 </p>
+<p>-z </p>
+<p>用 gzip 来压缩/解压缩文件 </p>
+<p>-j </p>
+<p>用 bzip2 来压缩/解压缩文件 </p>
+<p>-C </p>
+<p>指定文件解压后的存放路径 </p>
+<p>【举例】在/mnt/目录下有 s1、s2、s3 和 1.txt 四个文件，现完成以下打包和解包要求： </p>
+<p>（1）将这 4 个文件打包成 bak.tar 放在/mnt/目录下 </p>
+<p>（2）将这 4 个文件打包成 bak2.tar 放在/mnt/bak 目录下 </p>
+<p>（3）将这 4 个文件分别以 gzip 和 bzip2 方式压缩为 bak.tar.gz 和 bak.tar.bz2 </p>
+<p>存放在/mnt/bak 目录下 </p>
+<p>（4）查看各个包文件内的文件列表，并将这 4 个文件删除。（5）向 tar 包中追加/mnt/newfile 文件 </p>
+<p>（6）对包文件进行解压 </p>
+<h4 id="四、源代码安装软件"><a href="#四、源代码安装软件" class="headerlink" title="四、源代码安装软件"></a>四、源代码安装软件</h4><p>1、源码安装软件的步骤是： </p>
+<p>（1）对下载的码包进行解压 </p>
+<p>（2）进入解压目录执行 ./configure 命令做相关设置 </p>
+<p>（3）执行 make 进行编译 </p>
+<p>（4）执行 make install 进行安装 </p>
+<p>2、源码安装 ntfs-3g 软件 </p>
+<p>（1）下载 ntfs-3g 软件：<a href="http://www.onlinedown.net/soft/170545.htm" target="_blank" rel="noopener">http://www.onlinedown.net/soft/170545.htm</a> </p>
+<p>（2）解压 ntfs-3g 软件到/mnt 目录下 </p>
+<p>（3）安装安装相关依赖包 </p>
+<p># yum -y install cmake bison git ncurses-devel gcc gcc-c++ </p>
+<p>（4）进入 ntfs-3g 目录执行：./configure 对安装环境进行配置 </p>
+<p>（5）执行 make 命令进行编译 </p>
+<p>（6）执行 make install 命令进行安装 </p>
+<p>（7）挂载 ntfs 分区 </p>
+<p>（8）如果要卸载 ntfs-3g 软件,就进入安装目录执行：make uninstall </p>
+<p>4、修改文件权限用什么命令？ chmod</p>
+<p>rwxrwSrwt+</p>
+<p>+:       ACL</p>
+<p>t      SBIT(小t代表？有x权限)</p>
+<p>S:   SGID(大S代表?没有权限)</p>
+<p>5、查看文件前3行内容使用什么命令</p>
+<p>head -3 文件名</p>
+<p>查看/etc/passwd文件中只包含root的行?</p>
+<p>cat /etc/passwd |grep root</p>
+<p>6、vim编辑器快速定到100行?VIM有几种模式 ？</p>
+<p>100G     编辑         末行    命令行</p>
+<p>查找文件中所有的word并替换成WORD</p>
+<p>:s /word/ WORD/g</p>
+<p>7、什么是挂载？命令是什么</p>
+<p>如果要只查看 /mnt/cdrom 目录是否已挂载，用什么命令 ？</p>
+<p>如果要查看挂载文件的使用情况</p>
+<p>8、查看网卡ens33的配置信息有几种方式？</p>
+<p> ifconfig ens33</p>
+<p>cat /etc/sysconfig/network-scripts/ifconfig-ens33 网卡的配置文件界面查看 </p>
+<p>ONBOOT 启动网络服务的时候是否自动启动网卡</p>
+<p>网络服务的名称是什么？ network.service</p>
+<p>9、请问IDE硬盘、usb硬盘、光盘的设备文件分别怎么表示？文件系统类型</p>
+<p>10、ls /etc/&gt; /mnt/1.txt</p>
+<p>错误重定向怎么写 aa -1  2&gt;1.txt  </p>
+<p>定义别名：</p>
+<p>11、只在屏幕上显示#开头的内容</p>
+<p>cat /etc/   |grep  ^#</p>
+<p>12、用户的两个配置文件分别是什么？</p>
+<p>/etc/passwd 用户信息</p>
+<p>/etc/shadow 密码信息</p>
+<p>用户组的两个配置文件分别是什么？</p>
+<p>/etc/group</p>
+<p>/etc/gpasswd</p>
+<p>锁定账号：passed -l 用户名</p>
+<p>解锁账号: passwd -u 用户名</p>
+<p>13、设置磁盘配额的步骤？</p>
+<p>修改/etc/fstab文件，加选项：usrquota,grpquota;</p>
+<p>重新挂载 ：mount -o remount</p>
+<p>生成配额文件  quotacheck</p>
+<p>编辑配额项   quotacheck-cvug</p>
+<p>激活配额  quotaon -ugv /mnt/xxx</p>
+<p>关闭配额quotaoff -vug</p>
+<p>15、软件的安装方式有哪些</p>
+<p>yum安装</p>
+<p>rpm安装</p>
+<p>源码安装</p>
+<p>16、关闭防火墙</p>
+<p>systemctl stop firewalld </p>
+<p>selinux机制有那两种状态 0  关闭 1  开启</p>
+<p>查看状态 getenforce</p>
+<p>17、yum源文件默认的存放目录？</p>
+<p>/etc/yum.repo.d/</p>
+<p>18、如果使用yum安装失败，如何处理</p>
+<p>查看yum源配置文件指定目录是否有误，格式对不对</p>
+<p>光盘是否已经挂载</p>
+<p>清除缓存</p>
+<p>20、请问为什么SSH在开启防火墙时能访问，而telnet不能访问</p>
+<p>默认情况下Linux里关闭了telnet服务</p>
+<p>为什么telnet时root用户不能登录呢？</p>
+<p>默认情况下不允许root用户进行</p>
+<p>在Windows 客户端使用命令提示符telnet时提示没有米命令？</p>
+<p>21、文件压缩 ？</p>
+<p>tar   -czf  压缩后文件名  需要压缩的文件名</p>
+<p>文件解压 ？tar -zxf 压缩后的文件名  -C 指定解压后的目录</p>
+<p>时间不早了，晚安！</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g6rh3jcxd0j307507edgm.jpg" alt></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/12.15/" class="archive-article-date">
-  	<time datetime="2020-02-03T04:53:23.862Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/03/12.23/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/03/12.23/" class="archive-article-date">
-  	<time datetime="2020-02-03T04:42:10.289Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-03</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/12.30 搭建nginx服务器/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:55:51.285Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2020/02/03/12.15/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/02/12.30 搭建nginx服务器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/2.2/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:11:47.195Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/02/数据库/" class="archive-article-date">
-  	<time datetime="2020-02-02T07:10:08.308Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-02</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/01/12.19/" class="archive-article-date">
-  	<time datetime="2020-02-01T02:33:30.263Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-01</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -314,8 +546,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
